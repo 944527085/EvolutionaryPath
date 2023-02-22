@@ -1,4 +1,5 @@
-﻿using HotUpdateScripts.GameScript.UI;
+﻿using BM;
+using HotUpdateScripts.GameScript.UI;
 using JEngine.Core;
 using System.Collections.Generic;
 using UnityEngine;
@@ -87,9 +88,9 @@ namespace HotUpdateScripts.GameScript.Manager
         private void InitViewPrefabDic()
         {
             ViewPrefabDic = new Dictionary<ViewModel, string>();
-            ViewPrefabDic.Add(ViewModel.VMainPanel, "Assets/HotUpdateResources/Prefab/UI/VMainPanel/VMainPanel.prefab");
-            ViewPrefabDic.Add(ViewModel.VSelectLevelPanel, "Assets/HotUpdateResources/Prefab/UI/VSelectLevelPanel/VSelectLevelPanel.prefab");
-            ViewPrefabDic.Add(ViewModel.VSelectLevelItem, "Assets/HotUpdateResources/Prefab/UI/VSelectLevelPanel/VSelectLevelItem.prefab");
+            ViewPrefabDic.Add(ViewModel.VMainPanel, BPath.Assets_HotUpdateResources_Prefab_UI_VMainPanel_VMainPanel__prefab);
+            ViewPrefabDic.Add(ViewModel.VSelectLevelPanel, BPath.Assets_HotUpdateResources_Prefab_UI_VSelectLevelPanel_VSelectLevelPanel__prefab);
+            ViewPrefabDic.Add(ViewModel.VSelectLevelItem, BPath.Assets_HotUpdateResources_Prefab_UI_VSelectLevelPanel_VSelectLevelItem__prefab);
         }
     }
 }
