@@ -27,7 +27,6 @@ namespace HotUpdateScripts.GameScript.UI.View.CommPanel
                     ViewItemBase viewItem = ListItem[0];
                     ListItem.RemoveAt(0);
                     viewItem.Destroy();
-
                 }
             }
             for (int i = 0; i < tDataList.Count; i++)
