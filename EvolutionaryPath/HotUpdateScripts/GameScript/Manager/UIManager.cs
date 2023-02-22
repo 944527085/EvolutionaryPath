@@ -80,16 +80,6 @@ namespace HotUpdateScripts.GameScript.Manager
             }
             return ViewDic[viewModel] as T;
         }
-        public JPrefab GetJPrefab(ViewModel viewModel)
-        {
-            if (ViewPrefabDic == null)
-            {
-                return null;
-            }
-            string paht= ViewPrefabDic[viewModel];
-            JPrefab prefab = new JPrefab(paht, false);
-            return prefab;
-        }
         public string GetJPrefabPath(ViewModel viewModel)
         {
             return ViewPrefabDic[viewModel];
