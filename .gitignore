@@ -14,3 +14,7 @@ UnityProject/ProjectSettings/*
 UnityProject/Assets/JEngine.lock
 UnityProject/Assets/JEngine.lock.meta
 UnityProject/Assets/Dependencies/ILRuntime/Generated/*
+/EvolutionaryPath/Logs
+/EvolutionaryPath/Library
+/EvolutionaryPath/Temp
+/EvolutionaryPath/UserSettings

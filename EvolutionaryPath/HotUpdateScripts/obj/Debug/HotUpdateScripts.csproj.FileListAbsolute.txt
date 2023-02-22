@@ -4,3 +4,4 @@ D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\HotUpdateScripts\obj\Debug\H
 D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\HotUpdateScripts\obj\Debug\HotUpdateScripts.csproj.CopyComplete
 D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\HotUpdateScripts\obj\Debug\HotUpdateScripts.dll
 D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\HotUpdateScripts\obj\Debug\HotUpdateScripts.pdb
+D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\HotUpdateScripts\obj\Debug\HotUpdateScripts.csproj.AssemblyReference.cache

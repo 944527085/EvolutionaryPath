@@ -730,6 +730,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
     Android: INIT_JE;ILRuntime
+    Standalone: INIT_JE;ILRuntime
     WebGL: INIT_JE;ILRuntime
   additionalCompilerArguments: {}
   platformArchitecture: {}
