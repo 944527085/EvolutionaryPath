@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 1920382359
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5f58ff880cecfd0b0cdf7e136cd2c3b3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e07e163a1e2bba01c47d9fecda033b09
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 136c8f5360d9a4f13a42b9b074fc8038, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: JEngine.Core.ClassData
+- AssemblyName: Assembly-CSharp
+  ClassName: JEngine.Core.FieldList
+Assets:
+- Assets/HotUpdateResources/Prefab/InstantiateDemo.prefab
+Dependencies: []

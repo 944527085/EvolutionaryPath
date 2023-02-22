@@ -1,0 +1,48 @@
+ManifestFileVersion: 0
+CRC: 1270573470
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: shader_main
+      Dependencies: {}
+    Info_1:
+      Name: 5543148dac12c34d295bf42e4b62d180.je
+      Dependencies: {}
+    Info_2:
+      Name: da4ca7ebeeae488aa6eb503becec7aca.je
+      Dependencies: {}
+    Info_3:
+      Name: 92d484e089952c2c38798455399c468f.je
+      Dependencies:
+        Dependency_0: shader_main
+        Dependency_1: fcec6c29d1335c6d751a207616fdb773.je
+    Info_4:
+      Name: fcec6c29d1335c6d751a207616fdb773.je
+      Dependencies: {}
+    Info_5:
+      Name: 3a317287958985585328657650b655b1.je
+      Dependencies: {}
+    Info_6:
+      Name: ebc079399d719b2d06ad65987073df27.je
+      Dependencies: {}
+    Info_7:
+      Name: d3aef3d08b7f6a2b796ad46c2368424a.je
+      Dependencies: {}
+    Info_8:
+      Name: c6676739bcbe8e4af64eb75b08e52961.je
+      Dependencies:
+        Dependency_0: 92d484e089952c2c38798455399c468f.je
+    Info_9:
+      Name: 38861ffac7267cc888c2af2338a846bb.je
+      Dependencies:
+        Dependency_0: 92d484e089952c2c38798455399c468f.je
+    Info_10:
+      Name: df71129d7018ae410e14a72f09c6ca9f.je
+      Dependencies:
+        Dependency_0: 92d484e089952c2c38798455399c468f.je
+    Info_11:
+      Name: ad6869dd4124e9793cce09316e3a2396.je
+      Dependencies: {}
+    Info_12:
+      Name: c41fb328bb3361998b716422becaf779.je
+      Dependencies: {}

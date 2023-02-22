@@ -1,0 +1,22 @@
+{
+  "name": "com.jasonxudeveloper.jengine",
+  "version": "0.7.5",
+  "displayName": "JEngine",
+  "description": "The solution that allows unity games update in runtime.",
+  "license": "MIT",
+  "unity": "2019.3",
+  "keywords": [
+    "HotUpdate",
+    "Unity",
+    "ILRuntime",
+    "HotFix"
+  ],
+  "author": {
+    "name": "JasonXuDeveloper",
+    "email": "jasonxudeveloper@gmail.com",
+    "url": "https://github.com/JasonXuDeveloper"
+  },
+  "dependencies": {
+    "com.ourpalm.ilruntime": "2.1.0"
+  }
+}

@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 514493149
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7be1026d5c6f792030b2a98e05dea917
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c21d61fe394c58399df3c6fb5c7c99b3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/HotUpdateResources/UI/Btn_Title_p.png
+- Assets/HotUpdateResources/UI/bg_Title1.png
+- Assets/HotUpdateResources/UI/background4_v2.png
+- Assets/HotUpdateResources/UI/bg_Input0_n.png
+- Assets/HotUpdateResources/UI/bg_GoodsTitle.png
+- Assets/HotUpdateResources/UI/background1.png
+- Assets/HotUpdateResources/UI/Btn_Buy1_n.png
+- Assets/HotUpdateResources/UI/Icon_Back1.png
+- Assets/HotUpdateResources/UI/background5_v2.png
+- Assets/HotUpdateResources/UI/small title02_bg.png
+- Assets/HotUpdateResources/UI/Btn_MainMenu_n.png
+- Assets/HotUpdateResources/UI/Title2_bg.png
+- Assets/HotUpdateResources/UI/Btn_Back_h.png
+- Assets/HotUpdateResources/UI/background4.png
+- Assets/HotUpdateResources/UI/Btn_Buy1_p.png
+- Assets/HotUpdateResources/UI/bg_Title2 .png
+Dependencies: []

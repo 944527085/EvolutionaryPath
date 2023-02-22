@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1196376822
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2f49759481d688d8c93682634c22beac
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d4f40b75f3e634a53dbd84c0889aece6
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 9033b06b2a09ee44eb8b8b4f8d8462c0, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: ViewPrefabData
+Assets:
+- Assets/HotUpdateResources/ScriptableObject/ViewPrefabDicData.asset
+Dependencies: []

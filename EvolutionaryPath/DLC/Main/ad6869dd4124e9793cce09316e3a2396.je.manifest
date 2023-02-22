@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 4195910555
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4e023b99218e97dc719df0d9aee1df71
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a87c03abf411d850215bd431d07c2f79
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 196
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/HotUpdateResources/Scene/GameScene/Game.unity
+Dependencies: []

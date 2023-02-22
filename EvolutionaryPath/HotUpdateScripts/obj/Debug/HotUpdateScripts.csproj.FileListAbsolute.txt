@@ -1,0 +1,6 @@
+D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\Assets\HotUpdateResources\Dll\Hidden~\HotUpdateScripts.dll
+D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\Assets\HotUpdateResources\Dll\Hidden~\HotUpdateScripts.pdb
+D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\HotUpdateScripts\obj\Debug\HotUpdateScripts.csproj.CoreCompileInputs.cache
+D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\HotUpdateScripts\obj\Debug\HotUpdateScripts.csproj.CopyComplete
+D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\HotUpdateScripts\obj\Debug\HotUpdateScripts.dll
+D:\MyUnityProject\EvolutionaryPath\EvolutionaryPath\HotUpdateScripts\obj\Debug\HotUpdateScripts.pdb
