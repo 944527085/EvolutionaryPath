@@ -53,6 +53,7 @@
     <Compile Include="GameScript\Manager\GameManager.cs" />
     <Compile Include="GameScript\Manager\InputManager.cs" />
     <Compile Include="GameScript\Manager\PoolManager.cs" />
+    <Compile Include="GameScript\Manager\TimerManager.cs" />
     <Compile Include="GameScript\Manager\UIManager.cs" />
     <Compile Include="GameScript\Manager\UpdateManager.cs" />
     <Compile Include="GameScript\UI\ViewBase.cs" />
@@ -162,7 +163,6 @@
       <HintPath>..\Library\ScriptAssemblies\Nino.Shared.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <MonoDevelop>
