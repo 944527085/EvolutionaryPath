@@ -10,11 +10,12 @@ namespace HotUpdateScripts.GameScript.Manager
     {
         public override void Init()
         {
-            PoolManager.Instance.Init();
             UpdateManager.Instance.Init();
+            PoolManager.Instance.Init();
             UIManager.Instance.Init();
             EventManager.Instance.Init();
             InputManager.Instance.Init();
+            TimerManager.Instance.Init();
         }
     }
 }
