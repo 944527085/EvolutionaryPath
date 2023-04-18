@@ -28,7 +28,7 @@ namespace HotUpdateScripts.GameScript.Manager
             }
             else
             {
-                var _JPrefab = new JPrefab("paht", false);
+                var _JPrefab = new JPrefab(paht, false);
                 @object = _JPrefab.Instantiate();
             }
             return @object as T;

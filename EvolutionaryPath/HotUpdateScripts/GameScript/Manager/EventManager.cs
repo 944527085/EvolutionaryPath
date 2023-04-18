@@ -28,7 +28,7 @@ namespace HotUpdateScripts.GameScript.Manager
         /// </summary>
         /// <param name="eventCode">消息码</param>
         /// <param name="object">消息参数</param>
-        public void FireEvent(EventCode eventCode,object @object)
+        public void FireEvent(EventCode eventCode,object @object=null)
         {
             if (EventDic.ContainsKey(eventCode)==false)
             {

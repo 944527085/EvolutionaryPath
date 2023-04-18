@@ -120,7 +120,6 @@
     <Compile Include="Assets\Dependencies\JEngine\Editor\JEngineTools\UnityEditor\HierarchyPath.cs" />
     <Compile Include="Assets\WX-WASM-SDK\Editor\MinigameAssetAnalysis\Styles.cs" />
     <Compile Include="Assets\Dependencies\BundleMaster\Editor\BundleMasterEditor\DevelopSceneChange.cs" />
-    <Compile Include="Assets\Editor\ScriptableObjectEditor.cs" />
     <Compile Include="Assets\WX-WASM-SDK\Editor\WXUpdateWindow.cs" />
     <Compile Include="Assets\WX-WASM-SDK\Editor\MinigameAssetAnalysis\SerializedPropertyFilters.cs" />
     <Compile Include="Assets\Dependencies\JEngine\Editor\ILRuntimeTools\SerializeILTypeInstance.cs" />
@@ -131,6 +130,28 @@
     <Compile Include="Assets\Scripts\Adapters\Editor\MonoBehaviourAdapterEditor.cs" />
     <Compile Include="Assets\Dependencies\BundleMaster\Editor\BundleMasterEditor\AssetsSetting.cs" />
     <Compile Include="Assets\Dependencies\JEngine\Editor\ABTools\BuildBundles.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\Editor\ShaderVariantsStripperConfig.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\MaterialCollection\MaterialCollection_AssignMaterial.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\VariantFilter\VariantFilter_Shader.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\Executable\InvalidVariantStrip.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\Editor\ShaderVariantsStripperWindow.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\ShaderVariantCollectionMaterialVariantConverter.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\Executable\IExecutable.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\VariantFilter\IVariantFilter.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\ShaderVariantCollectionMapper.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\SerializableShaderVariant.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\ShaderVariantCollectionToolConfig.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\Executable\VariantKeywordCombination.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\MaterialFilter\TestMaterialFilter.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\MaterialCollection\MaterialCollection_SceneDependency.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\ShaderVariantCollectionAddVariantWindow.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\MaterialCollection\IMaterialCollection.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\ShaderVariantCollectionToolWindow.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\VariantFilter\VariantFilter_PassStrip.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\Editor\ShaderVariantsStripperConditionWindow.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\MaterialCollection\MaterialCollection_TotalMaterial.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\Editor\ShaderVariantsStripperCode.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsCollection\Editor\MaterialFilter\IMaterialFilter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\WX-WASM-SDK\Editor\TextureEditor\Release\System.Numerics.Vectors.xml" />

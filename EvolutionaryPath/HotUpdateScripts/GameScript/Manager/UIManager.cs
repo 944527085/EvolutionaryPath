@@ -35,16 +35,25 @@ namespace HotUpdateScripts.GameScript.Manager
             GameObject.DontDestroyOnLoad(UIRoot.gameObject);
             ShowView<VMainPanel>(ViewModel.VMainPanel);
         }
-      
+        /// <summary>
+        /// 显示一个界面
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="viewModel"></param>
         public void ShowView<T>(ViewModel viewModel) where T : ViewBase, new()
         {
             ViewBase viewBase = GetView<T>(viewModel);
-            if (viewBase==null)
+            if (viewBase == null)
             {
                 return;
             }
             viewBase.Show();
         }
+        /// <summary>
+        /// 隐藏一个界面
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="viewModel"></param>
         public void HideView<T>(ViewModel viewModel) where T : ViewBase, new()
         {
             ViewBase viewBase = GetView<T>(viewModel);
@@ -54,6 +63,12 @@ namespace HotUpdateScripts.GameScript.Manager
             }
             viewBase.Hide();
         }
+        /// <summary>
+        /// 获取一个界面
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="viewModel"></param>
+        /// <returns></returns>
         public T GetView<T>(ViewModel viewModel) where T : ViewBase, new()
         {
             if (viewModel == ViewModel.Null)
@@ -81,6 +96,7 @@ namespace HotUpdateScripts.GameScript.Manager
             }
             return ViewDic[viewModel] as T;
         }
+
         public string GetJPrefabPath(ViewModel viewModel)
         {
             return ViewPrefabDic[viewModel];

@@ -321,6 +321,13 @@
     <Compile Include="Assets\Scripts\Helpers\RegisterValueTypeBinder.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\MemberSpecifiedDecorator.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\ServiceModel\XmlProtoSerializer.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.True.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.HasKeywordCombination.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.AExistAndBNotExist.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsData.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.PassTypeIs.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.ShaderName.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

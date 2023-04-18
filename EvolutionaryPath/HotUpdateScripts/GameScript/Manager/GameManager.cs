@@ -16,6 +16,7 @@ namespace HotUpdateScripts.GameScript.Manager
             EventManager.Instance.Init();
             InputManager.Instance.Init();
             TimerManager.Instance.Init();
+            EventManager.Instance.FireEvent(Event.EventCode.InitFinish);
         }
     }
 }
