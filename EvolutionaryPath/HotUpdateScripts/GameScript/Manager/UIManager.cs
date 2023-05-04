@@ -49,6 +49,7 @@ namespace HotUpdateScripts.GameScript.Manager
             }
             viewBase.Show();
         }
+
         /// <summary>
         /// 隐藏一个界面
         /// </summary>
@@ -62,6 +63,29 @@ namespace HotUpdateScripts.GameScript.Manager
                 return;
             }
             viewBase.Hide();
+        }
+        /// <summary>
+        /// 检查一个界面的激活状态
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="viewModel"></param>
+        /// <returns></returns>
+        public bool ViewIsActive(ViewModel viewModel) 
+        {
+            if (viewModel == ViewModel.Null)
+            {
+                return false;
+            }
+            if (ViewDic == null)
+            {
+                return false;
+            }
+            ViewBase viewBase = null;
+            if (ViewDic.TryGetValue(viewModel,out viewBase))
+            {
+                return viewBase.IsActive;
+            }
+            return false;
         }
         /// <summary>
         /// 获取一个界面
@@ -83,10 +107,12 @@ namespace HotUpdateScripts.GameScript.Manager
             {
                 if (ViewPrefabDic == null)
                 {
-                    return null;
+                    Debug.LogError("还未初始化ViewPrefabDic");
+                    InitViewPrefabDic();
                 }
                 if (!ViewPrefabDic.ContainsKey(viewModel))
                 {
+                    Debug.LogError("请在InitViewPrefabDic添加"+ viewModel+"对应资源的路径");
                     return null;
                 }
 
@@ -96,11 +122,18 @@ namespace HotUpdateScripts.GameScript.Manager
             }
             return ViewDic[viewModel] as T;
         }
-
+        /// <summary>
+        /// 获取一个界面的资源路径
+        /// </summary>
+        /// <param name="viewModel"></param>
+        /// <returns></returns>
         public string GetJPrefabPath(ViewModel viewModel)
         {
             return ViewPrefabDic[viewModel];
         }
+        /// <summary>
+        /// 初始化资源路径配置
+        /// </summary>
         private void InitViewPrefabDic()
         {
             ViewPrefabDic = new Dictionary<ViewModel, string>();

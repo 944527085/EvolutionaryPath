@@ -9,7 +9,17 @@ namespace HotUpdateScripts.GameScript.UI
         public abstract ViewModel viewModel { get; }
         public GameObject gameObject { get; private set; }
         public Transform transform { get; private set; }
-
+        public bool IsActive
+        {
+            get
+            {
+                if (gameObject==null)
+                {
+                    return false;
+                }
+                return gameObject.layer== UIManager.ShowViewLayer;
+            }
+        }
         public virtual void Init(Transform parent)
         {
             string paht = UIManager.Instance.GetJPrefabPath(viewModel);
@@ -20,14 +30,23 @@ namespace HotUpdateScripts.GameScript.UI
         }
         public virtual void Show()
         {
+            if (gameObject==null)
+            {
+                return;
+            }
             gameObject.layer = UIManager.ShowViewLayer;
         }
         public virtual void Hide()
         {
+            if (gameObject == null)
+            {
+                return;
+            }
             gameObject.layer = UIManager.HideViewLayer;
         }
         public virtual void Destroy()
         {
+            Hide();
             string paht = UIManager.Instance.GetJPrefabPath(viewModel);
             gameObject = null;
             transform = null;
