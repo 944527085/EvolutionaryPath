@@ -8,8 +8,6 @@ namespace HotUpdateScripts.GameScript.Manager
 {
     class UIManager : Singleton<UIManager>
     {
-        public readonly static int ShowViewLayer = LayerMask.NameToLayer("UI");
-        public readonly static int HideViewLayer = LayerMask.NameToLayer("HideView");
         private Dictionary<ViewModel, string> ViewPrefabDic;
         private Dictionary<ViewModel, ViewBase> ViewDic;
         public Transform UIRoot { get; private set; }

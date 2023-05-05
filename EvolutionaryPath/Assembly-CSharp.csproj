@@ -118,6 +118,7 @@
     <Compile Include="Assets\Dependencies\ILRuntime\Adapters\IExtensibleAdapter.cs" />
     <Compile Include="Assets\WX-WASM-SDK\WXFileCacheClean.cs" />
     <Compile Include="Assets\Dependencies\BundleMaster\BundleMasterRuntime\Helper\ValueHelper.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.True.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Compiler\CompilerDelegates.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializer.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\PrefixStyle.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="Assets\Dependencies\ILRuntime\Adapters\CoroutineAdapter.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\ArrayDecorator.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\Int64Serializer.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.PassTypeIs.cs" />
     <Compile Include="Assets\Dependencies\JEngine\Interface\IRegisterHelper.cs" />
     <Compile Include="Assets\Scripts\Adapters\GenericExampleAdapter.cs" />
     <Compile Include="Assets\Scripts\Adapters\ClassBindNonMonoBehaviourAdapter.cs" />
@@ -225,12 +227,14 @@
     <Compile Include="Assets\Dependencies\JEngine\AntiCheat\JBool.cs" />
     <Compile Include="Assets\Dependencies\ETTaskAsync\AsyncETVoidMethodBuilder.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Meta\TypeModel.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.HasKeywordCombination.cs" />
     <Compile Include="Assets\Dependencies\JEngine\Net\JSocket\SocketIOComponent.cs" />
     <Compile Include="Assets\Dependencies\ILRuntime\ValueTypeBinders\Vector2Binder.cs" />
     <Compile Include="Assets\Scripts\APIs\GenericExample.cs" />
     <Compile Include="Assets\WX-WASM-SDK\WXSDKManagerHandler.cs" />
     <Compile Include="Assets\Dependencies\BundleMaster\BundleMasterRuntime\Base\LoadBase.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\ByteSerializer.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsData.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\SurrogateSerializer.cs" />
     <Compile Include="Assets\Dependencies\LitJson\JsonException.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\CharSerializer.cs" />
@@ -258,6 +262,7 @@
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\DefaultValueDecorator.cs" />
     <Compile Include="Assets\Dependencies\JEngine\Core\Manager\CryptoMgr.cs" />
     <Compile Include="Assets\WX-WASM-SDK\WXRecorder.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.ShaderName.cs" />
     <Compile Include="Assets\WX-WASM-SDK\WXVideo.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\BufferPool.cs" />
     <Compile Include="Assets\Dependencies\ETTaskAsync\AsyncETTaskCompletedMethodBuilder.cs" />
@@ -272,6 +277,7 @@
     <Compile Include="Assets\Dependencies\JEngine\Core\Logger\Log.cs" />
     <Compile Include="Assets\Dependencies\JEngine\Net\JSocket\EnginePacketType.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\UriDecorator.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.cs" />
     <Compile Include="Assets\Dependencies\BundleMaster\BundleMasterRuntime\Helper\GroupAssetHelper.cs" />
     <Compile Include="Assets\Dependencies\JEngine\AntiCheat\JDecimal.cs" />
     <Compile Include="Assets\Dependencies\ETTaskAsync\ETVoid.cs" />
@@ -288,6 +294,7 @@
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\BufferExtension.cs" />
     <Compile Include="Assets\Dependencies\JEngine\Core\ILRuntimeHelper\RegisterMethodRedirection.cs" />
     <Compile Include="Assets\Dependencies\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.AExistAndBNotExist.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\UInt16Serializer.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\ListDecorator.cs" />
     <Compile Include="Assets\Dependencies\JEngine\Net\JSocket\Packet.cs" />
@@ -321,13 +328,6 @@
     <Compile Include="Assets\Scripts\Helpers\RegisterValueTypeBinder.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\Serializers\MemberSpecifiedDecorator.cs" />
     <Compile Include="Assets\Dependencies\protobuf-net-v2-for-ILRuntime\protobuf-net\ServiceModel\XmlProtoSerializer.cs" />
-    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.True.cs" />
-    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.HasKeywordCombination.cs" />
-    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.AExistAndBNotExist.cs" />
-    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsData.cs" />
-    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.cs" />
-    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.PassTypeIs.cs" />
-    <Compile Include="Assets\SocoTools-main\SocoShaderVariantsStripper\ShaderVariantsStripperCondition.ShaderName.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

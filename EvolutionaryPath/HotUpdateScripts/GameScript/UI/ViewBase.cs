@@ -17,7 +17,7 @@ namespace HotUpdateScripts.GameScript.UI
                 {
                     return false;
                 }
-                return gameObject.layer== UIManager.ShowViewLayer;
+                return gameObject.activeSelf;
             }
         }
         public virtual void Init(Transform parent)
@@ -34,7 +34,7 @@ namespace HotUpdateScripts.GameScript.UI
             {
                 return;
             }
-            gameObject.layer = UIManager.ShowViewLayer;
+            gameObject.SetActive(true);
         }
         public virtual void Hide()
         {
@@ -42,15 +42,13 @@ namespace HotUpdateScripts.GameScript.UI
             {
                 return;
             }
-            gameObject.layer = UIManager.HideViewLayer;
+            gameObject.SetActive(false);
         }
         public virtual void Destroy()
         {
-            Hide();
-            string paht = UIManager.Instance.GetJPrefabPath(viewModel);
+            GameObject.Destroy(gameObject);
             gameObject = null;
             transform = null;
-            PoolManager.Instance.SetPoolObject(paht,gameObject);
         }
     }
 }
