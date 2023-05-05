@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HotUpdateScripts.GameScript.Manager;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,13 +36,13 @@ namespace HotUpdateScripts.GameScript.UI.View.CommPanel
                 if (ListItem.Count <= i)
                 {
                     viewItem = new T();
+                    viewItem.Init(scrollRect.content);
                     ListItem.Add(viewItem);
                 }
                 else
                 {
                     viewItem = ListItem[i];
                 }
-                viewItem.Init(scrollRect.content);
                 viewItem.SetData(tDataList[i]);
             }
         }
