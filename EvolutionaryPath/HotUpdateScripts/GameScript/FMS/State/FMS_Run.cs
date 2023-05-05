@@ -8,6 +8,10 @@ namespace HotUpdateScripts.GameScript.FMS.State
 {
     class FMS_Run : FMS_StateBase
     {
+        public FMS_Run(FMS_Entity fMS_Entity):base(fMS_Entity)
+        {
+
+        }
         public override void EnterOn()
         {
         
