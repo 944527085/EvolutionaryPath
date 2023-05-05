@@ -1,24 +1,33 @@
-﻿using HotUpdateScripts.GameScript.Manager;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace HotUpdateScripts.GameScript.UI
 {
-   abstract  class ViewPanelBase: ViewBase
+    abstract class ViewPanelBase : ViewBase
     {
+        public virtual string LayerName => UISortingLayerEm.Default;
         private Canvas canvas;
         public override void Init(Transform Root)
         {
             base.Init(Root);
             canvas = gameObject.GetComponent<Canvas>();
-            if (canvas!=null)
+            canvas.overrideSorting = true;
+            canvas.sortingLayerName = LayerName;
+        }
+        public int GetSortingLayer()
+        {
+            if (canvas == null)
             {
-                canvas.worldCamera = UIManager.Instance.GetUICamera;
+                return 0;
             }
+            return canvas.sortingOrder;
+        }
+        public void SetSortingLayer(int layer)
+        {
+            if (canvas == null)
+            {
+                return;
+            }
+            canvas.sortingOrder = layer;
         }
     }
 }

@@ -56,7 +56,7 @@ namespace HotUpdateScripts.GameScript.Manager
             timer.Start(_time, EndAction, UpdateAction);
             if (EndAction != null && UpdateAction == null)
             {
-                int ID = 0;
+                int ID = TriggerTimers.Count;//默认在末尾
                 for (int i = 0; i < TriggerTimers.Count; i++)
                 {
                     if (_time < TriggerTimers[i].ResidueTime())//获得插入的最优位置
@@ -65,11 +65,6 @@ namespace HotUpdateScripts.GameScript.Manager
                         break;
                     }
                 }
-                if (ID == 0)//剩余的时间最大没找到合适的插入位置
-                {
-                    ID = TriggerTimers.Count;//放到末尾
-                }
-
                 TriggerTimers.Insert(ID, timer);
             }
             else if (EndAction != null && UpdateAction != null)
@@ -84,7 +79,7 @@ namespace HotUpdateScripts.GameScript.Manager
             {
                 if (TriggerTimers[0].ResidueTime() <= 0)//只需要判断计时器队列中的第一个就行。
                 {
-                    TriggerTimers[0].TriggerOn();
+                    TriggerTimers[0].EndTrigger();
                 }
             }
             for (int i = 0; i < UpdateTimers.Count; i++)
@@ -124,7 +119,7 @@ namespace HotUpdateScripts.GameScript.Manager
             this.UpdateAction = UpdateAction;
         }
 
-        public void TriggerOn()
+        public void EndTrigger()
         {
             EndAction?.Invoke();
             EndAction = null;
@@ -157,7 +152,7 @@ namespace HotUpdateScripts.GameScript.Manager
         /// <summary>
         /// 触发事件
         /// </summary>
-        void TriggerOn();
+        void EndTrigger();
 
         void UpdateOn();
 

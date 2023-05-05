@@ -56,6 +56,7 @@
     <Compile Include="GameScript\Manager\TimerManager.cs" />
     <Compile Include="GameScript\Manager\UIManager.cs" />
     <Compile Include="GameScript\Manager\UpdateManager.cs" />
+    <Compile Include="GameScript\UI\UIConfig.cs" />
     <Compile Include="GameScript\UI\ViewBase.cs" />
     <Compile Include="GameScript\UI\ViewItemBase.cs" />
     <Compile Include="GameScript\UI\ViewModel.cs" />

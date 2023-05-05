@@ -8,29 +8,31 @@ namespace HotUpdateScripts.GameScript.Manager
 {
     class UIManager : Singleton<UIManager>
     {
+        /// <summary>
+        /// 资源配置表
+        /// </summary>
         private Dictionary<ViewModel, string> ViewPrefabDic;
-        private Dictionary<ViewModel, ViewBase> ViewDic;
-        public Transform UIRoot { get; private set; }
-        private Camera UICamera;
-        public Camera GetUICamera
-        {
-            get
-            {
-                if (UICamera == null)
-                {
-                    UICamera = UIRoot.transform.Find("UICamera").GetComponent<Camera>();
-                }
-                return UICamera;
-            }
-        }
+        /// <summary>
+        /// UIWindow索引表
+        /// </summary>
+        private Dictionary<ViewModel, ViewPanelBase> UIViewDic;
+        /// <summary>
+        /// UIWindow排序表
+        /// </summary>
+        private Dictionary<string, int> UIViewSoringDic;
+        public GameObject UIRoot { get; private set; }
+        public Canvas UIRootCanvas { get; private set; }
+        public Camera UICamera { get; private set; }
 
         public override void Init()
         {
             InitViewPrefabDic();
-            var prefab = new JPrefab("Assets/HotUpdateResources/Prefab/UI/UIRoot.prefab", false);
-            UIRoot = GameObject.Instantiate(prefab.Instance).transform;
-            UICamera = UIRoot.Find("UICamera").GetComponent<Camera>();
-            GameObject.DontDestroyOnLoad(UIRoot.gameObject);
+            InitUIViewSoringDic();
+            InitUIViewDic();
+            UIRoot =  PoolManager.Instance.GetPoolObject<GameObject>(BPath.Assets_HotUpdateResources_Prefab_UI_UIRoot__prefab);
+            UIRootCanvas = UIRoot.transform.Find("UIRootCanvas").GetComponent<Canvas>();
+            UICamera = UIRoot.transform.Find("UICamera").GetComponent<Camera>();
+            GameObject.DontDestroyOnLoad(UIRoot);
             ShowView<VMainPanel>(ViewModel.VMainPanel);
         }
         /// <summary>
@@ -38,12 +40,19 @@ namespace HotUpdateScripts.GameScript.Manager
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="viewModel"></param>
-        public void ShowView<T>(ViewModel viewModel) where T : ViewBase, new()
+        public void ShowView<T>(ViewModel viewModel) where T : ViewPanelBase, new()
         {
-            ViewBase viewBase = GetView<T>(viewModel);
+            ViewPanelBase viewBase = GetView<T>(viewModel);
             if (viewBase == null)
             {
                 return;
+            }
+            int nLayer = -1;
+            if (UIViewSoringDic.TryGetValue(viewBase.LayerName,out nLayer))
+            {
+                nLayer = nLayer + 100;
+                viewBase.SetSortingLayer(nLayer);
+                UIViewSoringDic[viewBase.LayerName] = nLayer;
             }
             viewBase.Show();
         }
@@ -53,12 +62,21 @@ namespace HotUpdateScripts.GameScript.Manager
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="viewModel"></param>
-        public void HideView<T>(ViewModel viewModel) where T : ViewBase, new()
+        public void HideView<T>(ViewModel viewModel) where T : ViewPanelBase, new()
         {
-            ViewBase viewBase = GetView<T>(viewModel);
+            ViewPanelBase viewBase = GetView<T>(viewModel);
             if (viewBase == null)
             {
                 return;
+            }
+            int nLayer = -1;
+            if (UIViewSoringDic.TryGetValue(viewBase.LayerName, out nLayer))
+            {
+                if (viewBase.GetSortingLayer()== nLayer)
+                {
+                    nLayer = nLayer - 100;
+                }
+                UIViewSoringDic[viewBase.LayerName] = nLayer;
             }
             viewBase.Hide();
         }
@@ -74,12 +92,12 @@ namespace HotUpdateScripts.GameScript.Manager
             {
                 return false;
             }
-            if (ViewDic == null)
+            if (UIViewDic == null)
             {
                 return false;
             }
-            ViewBase viewBase = null;
-            if (ViewDic.TryGetValue(viewModel,out viewBase))
+            ViewPanelBase viewBase = null;
+            if (UIViewDic.TryGetValue(viewModel,out viewBase))
             {
                 return viewBase.IsActive;
             }
@@ -91,17 +109,17 @@ namespace HotUpdateScripts.GameScript.Manager
         /// <typeparam name="T"></typeparam>
         /// <param name="viewModel"></param>
         /// <returns></returns>
-        public T GetView<T>(ViewModel viewModel) where T : ViewBase, new()
+        public T GetView<T>(ViewModel viewModel) where T : ViewPanelBase, new()
         {
             if (viewModel == ViewModel.Null)
             {
                 return null;
             }
-            if (ViewDic == null)
+            if (UIViewDic == null)
             {
-                ViewDic = new Dictionary<ViewModel, ViewBase>();
+                UIViewDic = new Dictionary<ViewModel, ViewPanelBase>();
             }
-            if (!ViewDic.ContainsKey(viewModel))
+            if (!UIViewDic.ContainsKey(viewModel))
             {
                 if (ViewPrefabDic == null)
                 {
@@ -114,11 +132,11 @@ namespace HotUpdateScripts.GameScript.Manager
                     return null;
                 }
 
-                ViewBase viewBase = new T();
-                viewBase.Init(Instance.UIRoot);
-                ViewDic[viewModel] = viewBase;
+                ViewPanelBase viewBase = new T();
+                viewBase.Init(Instance.UIRootCanvas.transform);
+                UIViewDic[viewModel] = viewBase;
             }
-            return ViewDic[viewModel] as T;
+            return UIViewDic[viewModel] as T;
         }
         /// <summary>
         /// 获取一个界面的资源路径
@@ -138,6 +156,18 @@ namespace HotUpdateScripts.GameScript.Manager
             ViewPrefabDic.Add(ViewModel.VMainPanel, BPath.Assets_HotUpdateResources_Prefab_UI_VMainPanel_VMainPanel__prefab);
             ViewPrefabDic.Add(ViewModel.VSelectLevelPanel, BPath.Assets_HotUpdateResources_Prefab_UI_VSelectLevelPanel_VSelectLevelPanel__prefab);
             ViewPrefabDic.Add(ViewModel.VSelectLevelItem, BPath.Assets_HotUpdateResources_Prefab_UI_VSelectLevelPanel_VSelectLevelItem__prefab);
+        }
+        private void InitUIViewDic()
+        {
+            UIViewDic = new Dictionary<ViewModel, ViewPanelBase>();
+        }
+        private void InitUIViewSoringDic()
+        {
+            UIViewSoringDic = new Dictionary<string, int>();
+            UIViewSoringDic.Add(UISortingLayerEm.Default, 0);
+            UIViewSoringDic.Add(UISortingLayerEm.Bottom, 0);
+            UIViewSoringDic.Add(UISortingLayerEm.Centre, 0);
+            UIViewSoringDic.Add(UISortingLayerEm.Top, 0);
         }
     }
 }

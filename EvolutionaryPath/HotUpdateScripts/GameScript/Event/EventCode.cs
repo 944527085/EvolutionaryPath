@@ -12,10 +12,6 @@ namespace HotUpdateScripts.GameScript.Event
     enum EventCode
     {
         /// <summary>
-        /// 初始化完成
-        /// </summary>
-        InitFinish,
-        /// <summary>
         /// 选择关卡
         /// </summary>
         SelectLevel,

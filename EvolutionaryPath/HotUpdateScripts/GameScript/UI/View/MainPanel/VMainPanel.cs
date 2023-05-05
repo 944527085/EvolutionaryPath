@@ -13,6 +13,8 @@ namespace HotUpdateScripts.GameScript.UI
     class VMainPanel: ViewPanelBase
     {
         public override ViewModel viewModel => ViewModel.VMainPanel;
+
+
         public override void Init(Transform Root)
         {
             base.Init(Root);
