@@ -14,17 +14,16 @@ namespace HotUpdateScripts.GameScript.UI
     {
         public override ViewModel viewModel => ViewModel.VMainPanel;
 
-
-        public override void Init(Transform Root)
+        public override void Init()
         {
-            base.Init(Root);
+            base.Init();
             Button PlayGameBtn = gameObject.transform.Find("PlayGame").GetComponent<Button>();
             PlayGameBtn.onClick.AddListener(PlayGameOn);
         }
         void PlayGameOn()
         {
-            Hide();
             UIManager.Instance.ShowView<VSelectLevelPanel>(ViewModel.VSelectLevelPanel);
+            UIManager.Instance.HideView(this);
         }
     }
 }

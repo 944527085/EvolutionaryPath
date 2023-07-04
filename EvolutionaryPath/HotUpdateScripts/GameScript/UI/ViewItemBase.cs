@@ -10,7 +10,6 @@ namespace HotUpdateScripts.GameScript.UI
 {
    abstract class ViewItemBase : ViewBase
     {
-
         public abstract void SetData(object tData);
         public virtual void SelectOn(bool IsOn)
         {

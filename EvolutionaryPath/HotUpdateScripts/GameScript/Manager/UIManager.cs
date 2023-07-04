@@ -1,6 +1,7 @@
 ﻿using BM;
 using HotUpdateScripts.GameScript.UI;
 using JEngine.Core;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,32 +30,65 @@ namespace HotUpdateScripts.GameScript.Manager
             InitViewPrefabDic();
             InitUIViewSoringDic();
             InitUIViewDic();
-            UIRoot =  PoolManager.Instance.GetPoolObject<GameObject>(BPath.Assets_HotUpdateResources_Prefab_UI_UIRoot__prefab);
-            UIRootCanvas = UIRoot.transform.Find("UIRootCanvas").GetComponent<Canvas>();
-            UICamera = UIRoot.transform.Find("UICamera").GetComponent<Camera>();
-            GameObject.DontDestroyOnLoad(UIRoot);
-            ShowView<VMainPanel>(ViewModel.VMainPanel);
+            PoolManager.Instance.GetPoolObject(BPath.Assets_HotUpdateResources_Prefab_UI_UIRoot__prefab, (GameObject obj) =>
+            {
+                UIRoot = obj;
+                UIRootCanvas = UIRoot.transform.Find("UIRootCanvas").GetComponent<Canvas>();
+                UICamera = UIRoot.transform.Find("UICamera").GetComponent<Camera>();
+                GameObject.DontDestroyOnLoad(UIRoot);
+            });
         }
         /// <summary>
         /// 显示一个界面
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="viewModel"></param>
-        public void ShowView<T>(ViewModel viewModel) where T : ViewPanelBase, new()
+        public void ShowView<T>(ViewModel viewModel,Action callback=null) where T : ViewPanelBase, new()
         {
             ViewPanelBase viewBase = GetView<T>(viewModel);
             if (viewBase == null)
             {
-                return;
+                if (ViewPrefabDic == null)
+                {
+                    Debug.LogError("还未初始化ViewPrefabDic");
+                    InitViewPrefabDic();
+                }
+                if (!ViewPrefabDic.ContainsKey(viewModel))
+                {
+                    Debug.LogError("请在InitViewPrefabDic添加" + viewModel + "对应资源的路径");
+                    return;
+                }
+                if (UIViewDic==null)
+                {
+                    UIViewDic = new Dictionary<ViewModel, ViewPanelBase>();
+                }
+                viewBase = new T();
+                UIViewDic[viewModel] = viewBase;
+                viewBase.CreatOn(Instance.UIRootCanvas.transform, () =>
+                {
+                    int nLayer = -1;
+                    if (UIViewSoringDic.TryGetValue(viewBase.LayerName, out nLayer))
+                    {
+                        nLayer = nLayer + 100;
+                        viewBase.SetSortingLayer(nLayer);
+                        UIViewSoringDic[viewBase.LayerName] = nLayer;
+                    }
+                    viewBase.Show();
+                    callback?.Invoke();
+                });
             }
-            int nLayer = -1;
-            if (UIViewSoringDic.TryGetValue(viewBase.LayerName,out nLayer))
+            else
             {
-                nLayer = nLayer + 100;
-                viewBase.SetSortingLayer(nLayer);
-                UIViewSoringDic[viewBase.LayerName] = nLayer;
+                int nLayer = -1;
+                if (UIViewSoringDic.TryGetValue(viewBase.LayerName, out nLayer))
+                {
+                    nLayer = nLayer + 100;
+                    viewBase.SetSortingLayer(nLayer);
+                    UIViewSoringDic[viewBase.LayerName] = nLayer;
+                }
+                viewBase.Show();
+                callback?.Invoke();
             }
-            viewBase.Show();
         }
 
         /// <summary>
@@ -62,9 +96,8 @@ namespace HotUpdateScripts.GameScript.Manager
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="viewModel"></param>
-        public void HideView<T>(ViewModel viewModel) where T : ViewPanelBase, new()
+        public void HideView<T>(T viewBase) where T : ViewPanelBase, new()
         {
-            ViewPanelBase viewBase = GetView<T>(viewModel);
             if (viewBase == null)
             {
                 return;
@@ -72,7 +105,7 @@ namespace HotUpdateScripts.GameScript.Manager
             int nLayer = -1;
             if (UIViewSoringDic.TryGetValue(viewBase.LayerName, out nLayer))
             {
-                if (viewBase.GetSortingLayer()== nLayer)
+                if (viewBase.GetSortingLayer() == nLayer)
                 {
                     nLayer = nLayer - 100;
                 }
@@ -86,7 +119,7 @@ namespace HotUpdateScripts.GameScript.Manager
         /// <typeparam name="T"></typeparam>
         /// <param name="viewModel"></param>
         /// <returns></returns>
-        public bool ViewIsActive(ViewModel viewModel) 
+        public bool ViewIsActive(ViewModel viewModel)
         {
             if (viewModel == ViewModel.Null)
             {
@@ -97,7 +130,7 @@ namespace HotUpdateScripts.GameScript.Manager
                 return false;
             }
             ViewPanelBase viewBase = null;
-            if (UIViewDic.TryGetValue(viewModel,out viewBase))
+            if (UIViewDic.TryGetValue(viewModel, out viewBase))
             {
                 return viewBase.IsActive;
             }
@@ -121,20 +154,7 @@ namespace HotUpdateScripts.GameScript.Manager
             }
             if (!UIViewDic.ContainsKey(viewModel))
             {
-                if (ViewPrefabDic == null)
-                {
-                    Debug.LogError("还未初始化ViewPrefabDic");
-                    InitViewPrefabDic();
-                }
-                if (!ViewPrefabDic.ContainsKey(viewModel))
-                {
-                    Debug.LogError("请在InitViewPrefabDic添加"+ viewModel+"对应资源的路径");
-                    return null;
-                }
-
-                ViewPanelBase viewBase = new T();
-                viewBase.Init(Instance.UIRootCanvas.transform);
-                UIViewDic[viewModel] = viewBase;
+                return null;
             }
             return UIViewDic[viewModel] as T;
         }
@@ -145,6 +165,12 @@ namespace HotUpdateScripts.GameScript.Manager
         /// <returns></returns>
         public string GetJPrefabPath(ViewModel viewModel)
         {
+            if (!ViewPrefabDic.ContainsKey(viewModel))
+            {
+                Log.PrintError(viewModel.ToString()+"的资源不存在");
+                return string.Empty;
+            }
+            Log.Print("加载资源" + ViewPrefabDic[viewModel]);
             return ViewPrefabDic[viewModel];
         }
         /// <summary>

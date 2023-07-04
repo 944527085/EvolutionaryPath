@@ -1,4 +1,5 @@
 ﻿using HotUpdateScripts.GameScript.Manager;
+using JEngine.Core;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,14 +37,18 @@ namespace HotUpdateScripts.GameScript.UI.View.CommPanel
                 if (ListItem.Count <= i)
                 {
                     viewItem = new T();
-                    viewItem.Init(scrollRect.content);
+                    Log.PrintError("准备创建viewItem");
+                    viewItem.CreatOn(scrollRect.content,()=> {
+                        viewItem.SetData(tDataList[i]); 
+                    });
                     ListItem.Add(viewItem);
                 }
                 else
                 {
                     viewItem = ListItem[i];
+                    viewItem.SetData(tDataList[i]);
                 }
-                viewItem.SetData(tDataList[i]);
+                
             }
         }
     }

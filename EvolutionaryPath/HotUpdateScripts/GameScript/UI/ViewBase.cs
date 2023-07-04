@@ -1,5 +1,6 @@
 ﻿using HotUpdateScripts.GameScript.Manager;
 using JEngine.Core;
+using System;
 using UnityEngine;
 
 namespace HotUpdateScripts.GameScript.UI
@@ -13,24 +14,35 @@ namespace HotUpdateScripts.GameScript.UI
         {
             get
             {
-                if (gameObject==null)
+                if (gameObject == null)
                 {
                     return false;
                 }
                 return gameObject.activeSelf;
             }
         }
-        public virtual void Init(Transform parent)
+        public void CreatOn(Transform parent, Action action = null)
         {
             string paht = UIManager.Instance.GetJPrefabPath(viewModel);
-            gameObject = PoolManager.Instance.GetPoolObject<GameObject>(paht);
-            transform = gameObject.transform;
-            transform.SetParent(parent);
-            transform.localScale = Vector3.one;
+            PoolManager.Instance.GetPoolObject(paht, (GameObject obj) =>
+            {
+                Log.Print("创建成功" + paht);
+                gameObject = obj;
+                transform = gameObject.transform;
+                transform.SetParent(parent);
+                transform.localScale = Vector3.one;
+                Init();
+                action?.Invoke();
+            });
+
+        }
+        public virtual void Init()
+        {
+
         }
         public virtual void Show()
         {
-            if (gameObject==null)
+            if (gameObject == null)
             {
                 return;
             }

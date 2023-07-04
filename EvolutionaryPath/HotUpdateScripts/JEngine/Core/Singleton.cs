@@ -34,7 +34,7 @@ namespace JEngine.Core
     {
         protected Singleton() { }
 
-        protected static T _inst = new T();
+        private static T _inst = new T();
         public static T Instance
         {
             get

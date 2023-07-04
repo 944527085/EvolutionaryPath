@@ -85,6 +85,7 @@
     <Compile Include="Assets\Dependencies\ETTaskAsync\ETTask.cs" />
     <Compile Include="Assets\Scripts\Helpers\DelegateConvertorRegister.cs" />
     <Compile Include="Assets\WX-WASM-SDK\WXEnv.cs" />
+    <Compile Include="Assets\Test\Test1.cs" />
     <Compile Include="Assets\Dependencies\JEngine\Core\Manager\FileMgr.cs" />
     <Compile Include="Assets\Dependencies\JEngine\AntiCheat\AntiCheatHelper.cs" />
     <Compile Include="Assets\WX-WASM-SDK\WXGameClubButton.cs" />

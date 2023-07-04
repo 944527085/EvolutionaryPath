@@ -1,4 +1,5 @@
-﻿using JEngine.Core;
+﻿using HotUpdateScripts.GameScript.UI;
+using JEngine.Core;
 using UnityEngine;
 
 namespace HotUpdateScripts.GameScript.Manager
@@ -16,6 +17,7 @@ namespace HotUpdateScripts.GameScript.Manager
             EventManager.Instance.Init();
             InputManager.Instance.Init();
             TimerManager.Instance.Init();
+            UIManager.Instance.ShowView<VMainPanel>(ViewModel.VMainPanel);
         }
     }
 }

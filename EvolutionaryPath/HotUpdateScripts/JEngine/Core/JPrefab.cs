@@ -78,6 +78,7 @@ namespace JEngine.Core
             }
             if (async)
             {
+
                 LoadPrefabAsync(path, package, complete).Coroutine();
             }
             else
@@ -123,7 +124,7 @@ namespace JEngine.Core
             LoadTask.SetResult();
         }
 
-        private string path;
+        public string path { get; private set; }
 
         /// <summary>
         /// If the prefab has loaded or not (if it has error, it will still be loaded)

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using HotUpdateScripts.GameScript.Manager;
+using System;
+using UnityEngine;
 
 namespace HotUpdateScripts.GameScript.UI
 {
@@ -6,9 +8,8 @@ namespace HotUpdateScripts.GameScript.UI
     {
         public virtual string LayerName => UISortingLayerEm.Default;
         private Canvas canvas;
-        public override void Init(Transform Root)
+        public override void Init()
         {
-            base.Init(Root);
             canvas = gameObject.GetComponent<Canvas>();
             canvas.overrideSorting = true;
             canvas.sortingLayerName = LayerName;

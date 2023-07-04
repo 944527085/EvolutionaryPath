@@ -41,6 +41,9 @@ namespace HotUpdateScripts
             {
                 foreach (var innerEx in e.Exception.InnerExceptions)
                 {
+                    Debug.LogError($"{innerEx.Message}\n" +
+                              $"ILRuntime StackTrace: {innerEx.Data["StackTrace"]}\n\n" +
+                              $"Full Stacktrace: {innerEx.StackTrace}");
                 }
             };
           

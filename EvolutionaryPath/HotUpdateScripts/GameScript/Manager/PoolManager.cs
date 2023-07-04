@@ -1,44 +1,65 @@
-﻿using HotUpdateScripts.GameScript.UI;
-using JEngine.Core;
+﻿using JEngine.Core;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace HotUpdateScripts.GameScript.Manager
 {
+
     class PoolManager : Singleton<PoolManager>
     {
-        private Dictionary<string, Queue<object>> PoolDic;
+        private Dictionary<string, JPrefab> JprefabDic;
+        private Dictionary<string, Queue<GameObject>> PoolDic;
         public override void Init()
         {
-            PoolDic = new Dictionary<string, Queue<object>>();
+            PoolDic = new Dictionary<string, Queue<GameObject>>();
+            JprefabDic = new Dictionary<string, JPrefab>();
         }
-        public T GetPoolObject<T>(string paht) where T: class
+        public void GetPoolObject(string path, Action<GameObject> callback = null)
         {
-            object @object = null;
-            Queue<object> PoolQueue = default;
-            string PrefabID = paht;
-            if (PoolDic.TryGetValue(PrefabID, out PoolQueue) == false)
+            GameObject @object = null;
+            Queue<GameObject> PoolQueue = default;
+            if (PoolDic.TryGetValue(path, out PoolQueue) == false)
             {
-                PoolQueue = new Queue<object>();
-                PoolDic[PrefabID] = PoolQueue;
+                PoolQueue = new Queue<GameObject>();
+                PoolDic[path] = PoolQueue;
             }
             if (PoolQueue.Count > 0)
             {
                 @object = PoolQueue.Dequeue();
+                callback?.Invoke(@object);
+            }
+            else if (JprefabDic.ContainsKey(path))
+            {
+                JPrefab jPrefab = JprefabDic[path];
+                @object = jPrefab.Instantiate();
+                callback?.Invoke(@object);
             }
             else
             {
-                var _JPrefab = new JPrefab(paht, false);
-                @object = _JPrefab.Instantiate();
+                new JPrefab(path, (bool isFinish, JPrefab _JPrefab) =>
+                {
+                   
+
+                    if (!isFinish)
+                    {
+                        Log.PrintError("加载资源失败path" + path);
+                        return;
+                    }
+                    Log.PrintError("加载资源成功path" + path);
+                    JprefabDic.Add(path, _JPrefab);
+                     @object = _JPrefab.Instantiate();
+                    callback?.Invoke(@object);
+                });
+                
             }
-            return @object as T;
         }
-        public void SetPoolObject(string paht, object gameObject)
+        public void SetPoolObject(string paht, GameObject gameObject)
         {
-            Queue<object> PoolQueue = default;
+            Queue<GameObject> PoolQueue = default;
             if (PoolDic.TryGetValue(paht, out PoolQueue) == false)
             {
-                PoolQueue = new Queue<object>();
+                PoolQueue = new Queue<GameObject>();
                 PoolDic[paht] = PoolQueue;
             }
             PoolQueue.Enqueue(gameObject);

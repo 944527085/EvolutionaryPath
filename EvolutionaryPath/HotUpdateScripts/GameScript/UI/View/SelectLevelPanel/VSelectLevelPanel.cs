@@ -1,5 +1,6 @@
 ﻿using HotUpdateScripts.GameScript.UI.View.CommPanel;
 using HotUpdateScripts.GameScript.UI.View.SelectLevelPanel;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,9 +10,9 @@ namespace HotUpdateScripts.GameScript.UI.View
     {
         public override ViewModel viewModel => ViewModel.VSelectLevelPanel;
         private ScrollListCtrl SelectScroll;
-        public override void Init(Transform Root)
+        public override void Init()
         {
-            base.Init(Root);
+            base.Init();
             SelectScroll = new ScrollListCtrl();
             SelectScroll.Init(gameObject.transform.Find("SelectScroll").gameObject);
         }

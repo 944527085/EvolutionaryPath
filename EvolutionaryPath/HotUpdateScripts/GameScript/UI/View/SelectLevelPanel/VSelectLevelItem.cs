@@ -15,9 +15,9 @@ namespace HotUpdateScripts.GameScript.UI.View.SelectLevelPanel
         public override ViewModel viewModel => ViewModel.VSelectLevelItem;
 
         private TextMeshProUGUI Name;
-        public override void Init(Transform parent)
+        public override void Init()
         {
-            base.Init(parent);
+            base.Init();
             Name = gameObject.transform.Find("Name").GetComponent<TextMeshProUGUI>();
         }
         public override void SetData(object tData)
